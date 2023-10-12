@@ -1,0 +1,21 @@
+--Création de la base de données
+DROP DATABASE IF EXISTS `guide_montreal`;
+CREATE DATABASE `guide_montreal`;
+USE `guide_montreal`;
+
+-- Création de la table Building
+CREATE TABLE Building (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    description TEXT,
+);
+
+-- Création de la table Service
+CREATE TABLE Service (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    building_id INT,
+    FOREIGN KEY (building_id) REFERENCES Building(id)
+);
